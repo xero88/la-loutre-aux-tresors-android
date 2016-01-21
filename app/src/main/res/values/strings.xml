@@ -5,8 +5,15 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!-- Activity -->
     <string name="main_activity_offers">Offers</string>
     <string name="main_activity_gift_of_month">Month\'s gift</string>
     <string name="main_activity_my_coupons">My coupons</string>
     <string name="main_activity_my_account">My account</string>
+
+    <!-- Fragments -->
+    <string name="home_fragment_title">Geneva</string>
+    <string name="home_fragment_description">Système HiFi / meuble TV XXL</string>
+    <string name="offer_fragment_i_want_it">I want it</string>
 </resources>
