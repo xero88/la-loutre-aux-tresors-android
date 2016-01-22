@@ -20,12 +20,15 @@ import android.widget.Toast;
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import xero88.ch.qoqa.Fragment.OfferListFragment;
 import xero88.ch.qoqa.Model.User;
 import xero88.ch.qoqa.R;
+import xero88.ch.qoqa.Service.Callback.OrderCallback;
+import xero88.ch.qoqa.Service.OrderService;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, LogOutCallback {
@@ -151,7 +154,9 @@ public class MainActivity extends AppCompatActivity
 
     public void iWantItClickButton(View view) {
 
-       // Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
+        OrderService orderService = new OrderService();
+        orderService.sendOrder(ParseUser.getCurrentUser(), new OrderCallback(this));
+
     }
 
     @Override

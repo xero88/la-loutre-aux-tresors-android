@@ -41,4 +41,9 @@
     <string name="main_activity_logout">Logout</string>
     <string name="main_activity_error_while_loggout">Error when logout</string>
     <string name="login_activity_error_when_login">Error when login</string>
+    <string name="main_activity_my_keys">My keys</string>
+    <string name="main_activity_tresures">Treasures</string>
+    <string name="main_activity_treasures">Treasures</string>
+    <string name="main_activity_order_send">Order sended</string>
+    <string name="main_activity_error_while_sending">Error while sending order</string>
 </resources>
