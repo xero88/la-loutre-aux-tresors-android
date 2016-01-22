@@ -9,19 +9,26 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.parse.LogOutCallback;
+import com.parse.ParseException;
+import com.parse.ParseUser;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import xero88.ch.qoqa.Fragment.OfferListFragment;
+import xero88.ch.qoqa.Model.User;
 import xero88.ch.qoqa.R;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, LogOutCallback {
 
     @Bind(R.id.main_container) FrameLayout mainContainer;
 
@@ -44,6 +51,12 @@ public class MainActivity extends AppCompatActivity
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View headView = navigationView.getHeaderView(0);
+
+        // set current user email and name on drawer
+        ParseUser user = ParseUser.getCurrentUser();
+        ((TextView) headView.findViewById(R.id.emailUser)).setText(user.getUsername());
+        ((TextView) headView.findViewById(R.id.firstNameAndLastName)).setText((String)user.get(User.FIRSTNAME) + " " + (String)user.get(User.LASTNAME));
 
         // Check that the activity is using the layout version with
         // the fragment_container FrameLayout
@@ -125,6 +138,10 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_my_coupons) {
 
+        } else if (id == R.id.nav_logout) {
+
+            ParseUser.logOutInBackground(this);
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -134,6 +151,23 @@ public class MainActivity extends AppCompatActivity
 
     public void iWantItClickButton(View view) {
 
-        Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
+       // Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void done(ParseException e) {
+
+        // after logout
+        if (e == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+
+        } else {
+            Log.e("Error", e.getMessage());
+            Toast.makeText(this, getString(R.string.main_activity_error_while_loggout), Toast.LENGTH_LONG).show();
+        }
+
+
     }
 }

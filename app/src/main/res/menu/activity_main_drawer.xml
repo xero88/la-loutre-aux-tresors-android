@@ -18,7 +18,12 @@
                 android:id="@+id/nav_my_coupons"
                 android:icon="@drawable/ic_local_offer_black_24dp"
                 android:title="@string/main_activity_my_coupons" />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_exit_to_app_black_24dp"
+                android:title="@string/main_activity_logout" />
         </menu>
+
     </item>
 
 </menu>
