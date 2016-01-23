@@ -24,6 +24,7 @@ import com.parse.ParseUser;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import xero88.ch.qoqa.Fragment.CouponFragment;
+import xero88.ch.qoqa.Fragment.GiftFragment;
 import xero88.ch.qoqa.Fragment.OfferListFragment;
 import xero88.ch.qoqa.Model.User;
 import xero88.ch.qoqa.R;
@@ -107,6 +108,15 @@ public class MainActivity extends AppCompatActivity
         return selectedFragment;
     }
 
+    private Fragment selectGiftFragment(Intent intent) {
+        Fragment selectedFragment;
+        selectedFragment = new GiftFragment();
+        selectedFragment.setArguments(intent.getExtras());
+        navigationView.getMenu().getItem(1).setChecked(true);
+
+        return selectedFragment;
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -152,6 +162,11 @@ public class MainActivity extends AppCompatActivity
                     .replace(R.id.main_container, selectedFragment).commit();
 
         } else if (id == R.id.nav_gift_of_month) {
+
+            Fragment selectedFragment = selectGiftFragment(getIntent());
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.main_container, selectedFragment).commit();
+
 
         } else if (id == R.id.nav_my_coupons) {
 

@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Set up the login form.
         mFirstnameView = (AutoCompleteTextView) findViewById(R.id.firstNameField);
         mLastnameView = (AutoCompleteTextView) findViewById(R.id.lastNameField);
-        mUsernameView = (AutoCompleteTextView) findViewById(R.id.email);
+        mUsernameView = (AutoCompleteTextView) findViewById(R.id.username);
         populateAutoComplete();
 
         mPasswordView = (EditText) findViewById(R.id.password);
