@@ -5,12 +5,11 @@ package xero88.ch.qoqa.Model;
  */
 public class User {
 
-    public static final String FIRSTNAME = "FIRSTNAME";
-    public static final String LASTNAME = "LASTNAME";
+    public static final String FIRSTNAME = "firstname";
+    public static final String LASTNAME = "lastname";
 
     private String username;
     private String password;
-    private String email;
     private String firstName;
     private String lastName;
 
@@ -28,14 +27,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getFirstName() {
