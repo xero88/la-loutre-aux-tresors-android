@@ -20,10 +20,10 @@ import android.widget.Toast;
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
-import com.parse.SaveCallback;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import xero88.ch.qoqa.Fragment.CouponFragment;
 import xero88.ch.qoqa.Fragment.OfferListFragment;
 import xero88.ch.qoqa.Model.User;
 import xero88.ch.qoqa.R;
@@ -97,6 +97,16 @@ public class MainActivity extends AppCompatActivity
         return selectedFragment;
     }
 
+    private Fragment selectCouponFragment(Intent intent) {
+
+        Fragment selectedFragment;
+        selectedFragment = new CouponFragment();
+        selectedFragment.setArguments(intent.getExtras());
+        //navigationView.getMenu().getItem(1).setChecked(true);
+
+        return selectedFragment;
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -137,9 +147,17 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_offers) {
 
+            Fragment selectedFragment = selectOfferListFragment(getIntent());
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.main_container, selectedFragment).commit();
+
         } else if (id == R.id.nav_gift_of_month) {
 
         } else if (id == R.id.nav_my_coupons) {
+
+            Fragment selectedFragment = selectCouponFragment(getIntent());
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.main_container, selectedFragment).commit();
 
         } else if (id == R.id.nav_logout) {
 
