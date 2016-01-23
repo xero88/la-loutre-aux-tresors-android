@@ -33,7 +33,7 @@ public class CouponFragment extends Fragment implements FindCallback<ParseObject
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        final View view = inflater.inflate(R.layout.fragment_coupon, container, false);
+        final View view = inflater.inflate(R.layout.fragment_coupon1, container, false);
         ButterKnife.bind(this, view);
 
         CouponService service = new CouponService();
