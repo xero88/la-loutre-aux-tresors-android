@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
+import com.parse.ParsePush;
 import com.parse.ParseUser;
 
 import butterknife.Bind;
@@ -44,6 +45,10 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        // Parse : subscribe in channel by the name of user
+        ParseUser user = ParseUser.getCurrentUser();
+        ParsePush.subscribeInBackground("QoQa_" + user.getObjectId());
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -58,7 +63,6 @@ public class MainActivity extends AppCompatActivity
         View headView = navigationView.getHeaderView(0);
 
         // set current user email and name on drawer
-        ParseUser user = ParseUser.getCurrentUser();
         ((TextView) headView.findViewById(R.id.emailUser)).setText(user.getUsername());
         ((TextView) headView.findViewById(R.id.firstNameAndLastName)).setText((String)user.get(User.FIRSTNAME) + " " + (String)user.get(User.LASTNAME));
 
