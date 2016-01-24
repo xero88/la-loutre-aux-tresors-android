@@ -5,6 +5,8 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.Date;
+
 /**
  * Created by Anthony on 23/01/2016.
  */
@@ -18,6 +20,15 @@ public class Gift extends ParseObject {
     public void setName(String name) {
         put("name", name);
     }
+
+    public Date getDrawDate() {
+        return getDate("drawDate");
+    }
+
+    public void setDrawDate(Date date) {
+        put("drawDate", date);
+    }
+
 
     public int getType() {
         return getInt("type");

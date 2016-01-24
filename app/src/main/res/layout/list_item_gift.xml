@@ -20,5 +20,19 @@
         android:maxLines="1">
     </TextView>
 
+     <TextView
+         android:id="@+id/countDownLabel"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/titleLabel"
+         android:paddingTop="5dp"
+         android:paddingLeft="5dp"
+         android:paddingRight="5dp"
+         android:text="countdown"
+         android:textColor="#FFFFFF"
+         android:textSize="16sp"
+         android:textStyle="bold"
+         android:maxLines="1">
+     </TextView>
 
  </RelativeLayout>
