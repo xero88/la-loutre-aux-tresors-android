@@ -1,23 +1,34 @@
  <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#80000000"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="100dp"
+     android:orientation="vertical"
+     android:background="@drawable/parchemin2"
+     tools:ignore="MissingPrefix"
     >
+
+     <ImageView
+         android:id="@+id/chestImage"
+         android:layout_width="55dp"
+         android:layout_height="55dp"
+         android:layout_marginTop="15dp"
+         android:layout_marginLeft="30dp"
+         android:src="@drawable/chest2"/>
 
     <TextView
         android:id="@+id/titleLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:text="title"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:maxLines="1">
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="30dp"
+        android:text="Un voyage au caraibes"
+        android:maxLines="2"
+        android:textColor="@color/black"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_toRightOf="@id/chestImage"
+        fontPath="fonts/Primitive.ttf">
     </TextView>
 
      <TextView
@@ -25,14 +36,15 @@
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_below="@id/titleLabel"
-         android:paddingTop="5dp"
-         android:paddingLeft="5dp"
-         android:paddingRight="5dp"
-         android:text="countdown"
-         android:textColor="#FFFFFF"
-         android:textSize="16sp"
-         android:textStyle="bold"
-         android:maxLines="1">
+         android:layout_marginTop="5dp"
+         android:layout_marginLeft="5dp"
+         android:layout_marginRight="35dp"
+         android:text="1 day 2 hours"
+         android:maxLines="1"
+         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+         android:textColor="@color/black"
+         android:layout_toRightOf="@id/chestImage"
+         fontPath="fonts/Primitive.ttf">
      </TextView>
 
  </RelativeLayout>

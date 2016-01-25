@@ -58,10 +58,10 @@ public class CouponFragment extends Fragment implements FindCallback<ParseObject
     private void initMyCouponsListView(List<ParseObject> objects) {
 
         if(objects.size() != 0 && objects.get(0).getInt("type") == CouponType.BRONZE){
-            bronzeKeyCount.setText(objects.size() + "");
+            bronzeKeyCount.setText(objects.size() + " " + getString(R.string.bronzeKey));
         }
         else if(objects.size() != 0 && objects.get(0).getInt("type") == CouponType.PLATINE){
-            platineKeyCount.setText(objects.size() + "");
+            platineKeyCount.setText(objects.size() + " " + getString(R.string.platineKey));
         }
 
     }

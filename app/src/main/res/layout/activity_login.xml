@@ -9,6 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/background4"
+    tools:ignore="MissingPrefix"
     tools:context="xero88.ch.qoqa.Activity.LoginActivity">
 
     <!-- Login progress -->
@@ -44,6 +45,7 @@
                     android:id="@+id/firstNameField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    fontPath="fonts/Primitive.ttf"
                     android:hint="@string/prompt_firstname"
                     android:inputType="textPersonName"
                     android:maxLines="1"
@@ -59,6 +61,7 @@
                     android:id="@+id/lastNameField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    fontPath="fonts/Primitive.ttf"
                     android:hint="@string/prompt_lastname"
                     android:inputType="textPersonName"
                     android:maxLines="1"
@@ -74,6 +77,7 @@
                     android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    fontPath="fonts/Primitive.ttf"
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
@@ -89,6 +93,7 @@
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    fontPath="fonts/Primitive.ttf"
                     android:hint="@string/prompt_password"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
@@ -110,13 +115,15 @@
                 android:background="@color/colorPrimary"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/white"
-                android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+                fontPath="fonts/Primitive.ttf"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textColor="@color/colorPrimary"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                fontPath="fonts/Primitive.ttf"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp"
                 android:text="or"
@@ -133,7 +140,9 @@
                 android:background="@color/colorPrimary"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/white"
-                android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+                fontPath="fonts/Primitive.ttf"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+               />
 
         </LinearLayout>
     </ScrollView>

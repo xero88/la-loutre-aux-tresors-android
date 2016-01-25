@@ -8,41 +8,102 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/background3"
+    tools:ignore="MissingPrefix"
     tools:context="ch.geomatic.swissgeolocalmember.Fragment.HomeFragment">
 
-    <ImageView
-        android:id="@+id/platineKeyImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/key"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+    <RelativeLayout
 
-    <TextView
-        android:id="@+id/platineKeyCount"
-        android:layout_below="@id/platineKeyImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:text="0"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="25dp"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="50dp"
+        android:background="@drawable/parchemin1">
 
-    <ImageView
-        android:id="@+id/bronzeKeysImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/key"/>
 
-    <TextView
-        android:id="@+id/bronzeKeysCount"
-        android:layout_below="@id/bronzeKeysImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:text="0"/>
+        <ImageView
+            android:id="@+id/platineKeyImage"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@drawable/gold"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="15dp"/>
 
+        <TextView
+            android:id="@+id/platineKeyCount"
+            android:layout_toRightOf="@id/platineKeyImage"
+            fontPath="fonts/Primitive.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:gravity="center_vertical"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:text="1 platine keys"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"/>
+
+        <ImageView
+            android:id="@+id/bronzeKeysImage"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_below="@id/platineKeyImage"
+            android:src="@drawable/silver"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:id="@+id/bronzeKeysCount"
+            android:layout_toRightOf="@id/bronzeKeysImage"
+            fontPath="fonts/Primitive.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:gravity="center_vertical"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@id/platineKeyImage"
+            android:text="2 bronze keys"/>
+
+
+        <ImageView
+            android:id="@+id/silverKeysImage"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_below="@id/bronzeKeysImage"
+            android:src="@drawable/bronze"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:id="@+id/silverKeysCount"
+            android:layout_toRightOf="@id/bronzeKeysImage"
+            fontPath="fonts/Primitive.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:gravity="center_vertical"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@id/bronzeKeysImage"
+            android:text="2 silver keys"/>
+
+        <TextView
+            android:id="@+id/noteKeys"
+            fontPath="fonts/Primitive.ttf"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:layout_below="@id/silverKeysCount"
+            android:text="@string/keysNote"/>
+    </RelativeLayout>
 
 </RelativeLayout>
