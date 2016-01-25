@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/background4"
     tools:context="xero88.ch.qoqa.Activity.LoginActivity">
 
     <!-- Login progress -->
@@ -22,12 +23,17 @@
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/parchemin1">
 
         <LinearLayout
             android:id="@+id/email_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="50dp"
+            android:paddingBottom="20dp"
             android:orientation="vertical">
 
             <android.support.design.widget.TextInputLayout
@@ -41,7 +47,7 @@
                     android:hint="@string/prompt_firstname"
                     android:inputType="textPersonName"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -96,12 +102,13 @@
             <Button
                 android:id="@+id/sign_in_button"
                 style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/action_sign_in"
                 android:onClick="signInClickButton"
                 android:background="@color/colorPrimary"
+                android:layout_gravity="center_horizontal"
                 android:textColor="@color/white"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
@@ -111,17 +118,20 @@
                 android:textColor="@color/colorPrimary"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:text="or"
                 />
 
             <Button
                 android:id="@+id/login_button"
                 style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="5dp"
                 android:text="@string/activity_login"
                 android:onClick="loginClickButton"
                 android:background="@color/colorPrimary"
+                android:layout_gravity="center_horizontal"
                 android:textColor="@color/white"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
