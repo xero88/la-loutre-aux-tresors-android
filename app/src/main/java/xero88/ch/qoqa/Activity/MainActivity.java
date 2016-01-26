@@ -107,6 +107,16 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    private Fragment selectHomeFragment(Intent intent) {
+
+        Fragment selectedFragment;
+        selectedFragment = new OfferListFragment();
+        selectedFragment.setArguments(intent.getExtras());
+        navigationView.getMenu().getItem(0).setChecked(true);
+
+        return selectedFragment;
+    }
+
     private Fragment selectWinnerFragment(Intent intent) {
         Fragment selectedFragment;
         selectedFragment = new WinnerFragment();
@@ -121,7 +131,7 @@ public class MainActivity extends AppCompatActivity
         Fragment selectedFragment;
         selectedFragment = new OfferListFragment();
         selectedFragment.setArguments(intent.getExtras());
-        navigationView.getMenu().getItem(0).setChecked(true);
+        navigationView.getMenu().getItem(1).setChecked(true);
 
         return selectedFragment;
     }
@@ -139,8 +149,19 @@ public class MainActivity extends AppCompatActivity
     private Fragment selectGiftFragment(Intent intent) {
         Fragment selectedFragment;
         selectedFragment = new GiftFragment();
+        intent.putExtra(GiftFragment.SHOW_WINNING_GIFTS, false);
         selectedFragment.setArguments(intent.getExtras());
-        navigationView.getMenu().getItem(1).setChecked(true);
+        navigationView.getMenu().getItem(2).setChecked(true);
+
+        return selectedFragment;
+    }
+
+    private Fragment selectWinningGiftFragment(Intent intent) {
+        Fragment selectedFragment;
+        selectedFragment = new GiftFragment();
+        intent.putExtra(GiftFragment.SHOW_WINNING_GIFTS, true);
+        selectedFragment.setArguments(intent.getExtras());
+        navigationView.getMenu().getItem(3).setChecked(true);
 
         return selectedFragment;
     }
@@ -175,7 +196,16 @@ public class MainActivity extends AppCompatActivity
                     .replace(R.id.main_container, selectedFragment).commit();
 
 
-        } else if (id == R.id.nav_my_coupons) {
+        }
+        else if (id == R.id.nav_gift_winning) {
+
+            Fragment selectedFragment = selectWinningGiftFragment(getIntent());
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.main_container, selectedFragment).commit();
+
+
+        }
+        else if (id == R.id.nav_my_coupons) {
 
             Fragment selectedFragment = selectCouponFragment(getIntent());
             getSupportFragmentManager().beginTransaction()

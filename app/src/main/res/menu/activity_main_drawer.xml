@@ -3,6 +3,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_cake_black_24dp"
+            android:title="@string/main_activity_home" />
+        <item
             android:id="@+id/nav_offers"
             android:icon="@drawable/ic_view_quilt_black_24dp"
             android:title="@string/main_activity_offers" />
@@ -10,6 +14,11 @@
             android:id="@+id/nav_gift_of_month"
             android:icon="@drawable/ic_cake_black_24dp"
             android:title="@string/main_activity_treasures" />
+        <item
+            android:id="@+id/nav_gift_winning"
+            android:icon="@drawable/ic_cake_black_24dp"
+            android:title="@string/main_activity_winning_treasures" />
+
     </group>
 
     <item android:title="@string/main_activity_my_account">

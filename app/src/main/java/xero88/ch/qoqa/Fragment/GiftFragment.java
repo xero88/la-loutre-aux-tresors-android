@@ -21,6 +21,8 @@ import xero88.ch.qoqa.Service.GiftService;
  */
 public class GiftFragment extends Fragment implements FindCallback<Gift> {
 
+    public static final String SHOW_WINNING_GIFTS = "SHOW_WINNING_GIFTS";
+
     @Bind(R.id.giftListView) ListView giftListView;
 
     @Override
@@ -31,7 +33,12 @@ public class GiftFragment extends Fragment implements FindCallback<Gift> {
         ButterKnife.bind(this, view);
 
         GiftService service = new GiftService();
-        service.getActivGifts(this);
+
+        if(getArguments() != null && getArguments().getBoolean(GiftFragment.SHOW_WINNING_GIFTS)){
+            service.getWinnedGifts(this);
+        }
+        else
+            service.getActivGifts(this);
 
         // Inflate the layout for this fragment
         return view;
