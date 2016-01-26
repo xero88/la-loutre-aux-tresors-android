@@ -27,6 +27,7 @@ import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 import xero88.ch.qoqa.Fragment.CouponFragment;
 import xero88.ch.qoqa.Fragment.GiftFragment;
+import xero88.ch.qoqa.Fragment.HomeFragment;
 import xero88.ch.qoqa.Fragment.OfferListFragment;
 import xero88.ch.qoqa.Fragment.WinnerFragment;
 import xero88.ch.qoqa.Model.User;
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity
             selectedFragment = selectWinnerFragment(intent);
         }
         else {
-            selectedFragment = selectOfferListFragment(intent);
+            selectedFragment = selectHomeFragment(intent);
         }
 
 
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity
     private Fragment selectHomeFragment(Intent intent) {
 
         Fragment selectedFragment;
-        selectedFragment = new OfferListFragment();
+        selectedFragment = new HomeFragment();
         selectedFragment.setArguments(intent.getExtras());
         navigationView.getMenu().getItem(0).setChecked(true);
 
@@ -189,7 +190,15 @@ public class MainActivity extends AppCompatActivity
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.main_container, selectedFragment).commit();
 
-        } else if (id == R.id.nav_gift_of_month) {
+        }
+        else if (id == R.id.nav_home) {
+
+            Fragment selectedFragment = selectHomeFragment(getIntent());
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.main_container, selectedFragment).commit();
+
+        }
+        else if (id == R.id.nav_gift_of_month) {
 
             Fragment selectedFragment = selectGiftFragment(getIntent());
             getSupportFragmentManager().beginTransaction()

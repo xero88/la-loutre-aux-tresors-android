@@ -25,7 +25,15 @@ public class DateUtils {
         long minutes = (secondsDay / 60) % 60;
         long hours = (secondsDay / 3600); // % 24 not needed
 
-        return days + " days, " + hours + " hours, " + minutes + " minutes and " + seconds + " seconds\n"; // TODO Locale
+        if(days == 0)
+            return hours + " hours, " + minutes + " minutes, " + seconds + " seconds"; // TODO Locale
+        else if(days == 0 && hours == 0)
+            return minutes + " minutes, " + seconds + " seconds"; // TODO Locale
+        else if(days == 0 && hours == 0 && minutes == 0)
+            return seconds + " seconds"; // TODO Locale
+        else
+            return days + " days, " + hours + " hours, " + minutes + " minutes"; // TODO Locale
+
 
     }
 

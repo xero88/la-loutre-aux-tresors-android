@@ -59,4 +59,9 @@
     <string name="you_won">You won :</string>
     <string name="main_activity_winning_treasures">Winning treasures</string>
     <string name="main_activity_home">Home</string>
+§    <string name="earned_by">earned by</string>
+    <string name="draw_in_any_sec">draw in any sec !</string>
+    <string name="welcomeTitle">Welcome pirate !</string>
+    <string name="welcomeMessage">You can won incredible tresure ! When you buy offers, you earn bronze, silver, or gold keys. With this keys you can open chests and win all kind of crazy treasure !</string>
+    <string name="buy_offer">buy offer now</string>
 </resources>

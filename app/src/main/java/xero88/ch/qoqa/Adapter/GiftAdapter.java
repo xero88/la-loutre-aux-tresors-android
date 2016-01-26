@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +18,6 @@ import android.widget.TextView;
 import java.util.Date;
 import java.util.List;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyTypefaceSpan;
-import uk.co.chrisjenx.calligraphy.TypefaceUtils;
 import xero88.ch.qoqa.Model.CouponType;
 import xero88.ch.qoqa.Model.Gift;
 import xero88.ch.qoqa.R;
@@ -64,23 +61,34 @@ public class GiftAdapter extends ArrayAdapter<Gift> {
         if(gift.getType() == CouponType.GOLD)
             chestImageView.setImageResource(R.drawable.chest_gold);
 
-        // countdown
-        final Date giftDrawDate = gift.getDrawDate();
-        new CountDownTimer(DateUtils.getMiliSecDiff(giftDrawDate), 1000) {
+        if(gift.getWinner() == null){
 
-            TextView countdownLabel = (TextView) rowView.findViewById(R.id.countDownLabel);
+            // countdown
+            final Date giftDrawDate = gift.getDrawDate();
+            new CountDownTimer(DateUtils.getMiliSecDiff(giftDrawDate), 1000) {
 
-            @Override
-            public void onTick(long millisUntilFinished) {
-                FontUtils.setText(DateUtils.getCountdown(giftDrawDate), countdownLabel, "fonts/Primitive.ttf", context);
-            }
+                TextView countdownLabel = (TextView) rowView.findViewById(R.id.countDownLabel);
 
-            @Override
-            public void onFinish() {
-                FontUtils.setText("Draw in any sec !", countdownLabel, "fonts/Primitive.ttf", context);// TODO change
-                countdownLabel.setTextColor(Color.RED);
-            }
-        }.start();
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    FontUtils.setText(DateUtils.getCountdown(giftDrawDate), countdownLabel, "fonts/Primitive.ttf", context);
+                }
+
+                @Override
+                public void onFinish() {
+                    FontUtils.setText(context.getString(R.string.draw_in_any_sec), countdownLabel, "fonts/Primitive.ttf", context);// TODO change
+                    countdownLabel.setTextColor(Color.RED);
+                }
+            }.start();
+
+        }
+        else{
+
+            // or see the winner
+            TextView winnerLabel = (TextView) rowView.findViewById(R.id.countDownLabel);
+            FontUtils.setText(context.getString(R.string.earned_by) + " " + gift.getWinner().getUsername(), winnerLabel, "fonts/Primitive.ttf", context);
+
+        }
 
         return rowView;
     }
