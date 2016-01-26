@@ -1,17 +1,12 @@
 package xero88.ch.qoqa;
 
-import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
-import android.content.SharedPreferences;
 
 import com.parse.Parse;
 import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 import xero88.ch.qoqa.Activity.LoginActivity;
 import xero88.ch.qoqa.Activity.MainActivity;
 import xero88.ch.qoqa.Model.Gift;
@@ -24,13 +19,6 @@ public class Application extends android.app.Application  {
     @Override
     public void onCreate() {
         super.onCreate();
-
-
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                        .setDefaultFontPath("assets/Primitive.ttf")
-                        .setFontAttrId(R.attr.fontPath)
-                        .build()
-        );
 
 
         Parse.enableLocalDatastore(this);

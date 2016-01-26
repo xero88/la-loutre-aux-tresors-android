@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/background3"
     tools:ignore="MissingPrefix"
-    tools:context="ch.geomatic.swissgeolocalmember.Fragment.HomeFragment">
+    tools:context="xero88.ch.qoqa.Fragment.CouponFragment">
 
     <RelativeLayout
 
@@ -26,7 +26,7 @@
 
 
         <ImageView
-            android:id="@+id/platineKeyImage"
+            android:id="@+id/goldKeyImage"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:src="@drawable/gold"
@@ -36,51 +36,28 @@
             android:layout_marginBottom="15dp"/>
 
         <TextView
-            android:id="@+id/platineKeyCount"
-            android:layout_toRightOf="@id/platineKeyImage"
+            android:id="@+id/goldKeyCount"
+            android:layout_toRightOf="@id/goldKeyImage"
             fontPath="fonts/Primitive.ttf"
             android:layout_width="wrap_content"
             android:layout_height="65dp"
             android:gravity="center_vertical"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:text="1 platine keys"
+            android:text="@string/no_golden_keys"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"/>
-
-        <ImageView
-            android:id="@+id/bronzeKeysImage"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_below="@id/platineKeyImage"
-            android:src="@drawable/silver"
-            android:layout_marginBottom="15dp"/>
-
-        <TextView
-            android:id="@+id/bronzeKeysCount"
-            android:layout_toRightOf="@id/bronzeKeysImage"
-            fontPath="fonts/Primitive.ttf"
-            android:layout_width="wrap_content"
-            android:layout_height="65dp"
-            android:gravity="center_vertical"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginLeft="20dp"
-            android:layout_below="@id/platineKeyImage"
-            android:text="2 bronze keys"/>
-
 
         <ImageView
             android:id="@+id/silverKeysImage"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_below="@id/bronzeKeysImage"
-            android:src="@drawable/bronze"
+            android:layout_below="@id/goldKeyImage"
+            android:src="@drawable/silver"
             android:layout_marginBottom="15dp"/>
 
         <TextView
             android:id="@+id/silverKeysCount"
-            android:layout_toRightOf="@id/bronzeKeysImage"
+            android:layout_toRightOf="@id/silverKeysImage"
             fontPath="fonts/Primitive.ttf"
             android:layout_width="wrap_content"
             android:layout_height="65dp"
@@ -89,8 +66,31 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="20dp"
-            android:layout_below="@id/bronzeKeysImage"
-            android:text="2 silver keys"/>
+            android:layout_below="@id/goldKeyImage"
+            android:text="@string/no_silver_key"/>
+
+
+        <ImageView
+            android:id="@+id/bronzeKeysImage"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_below="@id/silverKeysImage"
+            android:src="@drawable/bronze"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:id="@+id/bronzeKeysCount"
+            android:layout_toRightOf="@id/silverKeysImage"
+            fontPath="fonts/Primitive.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:gravity="center_vertical"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@id/silverKeysImage"
+            android:text="@string/no_bronze_key"/>
 
         <TextView
             android:id="@+id/noteKeys"
@@ -102,7 +102,7 @@
             android:gravity="center_horizontal"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:layout_below="@id/silverKeysCount"
+            android:layout_below="@id/bronzeKeysCount"
             android:text="@string/keysNote"/>
     </RelativeLayout>
 

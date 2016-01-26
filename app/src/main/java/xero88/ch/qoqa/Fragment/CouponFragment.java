@@ -26,7 +26,8 @@ import xero88.ch.qoqa.Service.CouponService;
  */
 public class CouponFragment extends Fragment implements FindCallback<ParseObject> {
 
-    @Bind(R.id.platineKeyCount) TextView platineKeyCount;
+    @Bind(R.id.goldKeyCount) TextView goldKeyCount;
+    @Bind(R.id.silverKeysCount) TextView silverKeyCount;
     @Bind(R.id.bronzeKeysCount) TextView bronzeKeyCount;
 
     @Override
@@ -37,8 +38,9 @@ public class CouponFragment extends Fragment implements FindCallback<ParseObject
         ButterKnife.bind(this, view);
 
         CouponService service = new CouponService();
-        service.getCoupons(ParseUser.getCurrentUser(), CouponType.BRONZE, this);
-        service.getCoupons(ParseUser.getCurrentUser(), CouponType.PLATINE, this);
+        service.getCoupons(ParseUser.getCurrentUser(), CouponType.BRONZE, false, this);
+        service.getCoupons(ParseUser.getCurrentUser(), CouponType.SILVER, false, this);
+        service.getCoupons(ParseUser.getCurrentUser(), CouponType.GOLD, false, this);
 
         // Inflate the layout for this fragment
         return view;
@@ -60,9 +62,11 @@ public class CouponFragment extends Fragment implements FindCallback<ParseObject
         if(objects.size() != 0 && objects.get(0).getInt("type") == CouponType.BRONZE){
             bronzeKeyCount.setText(objects.size() + " " + getString(R.string.bronzeKey));
         }
-        else if(objects.size() != 0 && objects.get(0).getInt("type") == CouponType.PLATINE){
-            platineKeyCount.setText(objects.size() + " " + getString(R.string.platineKey));
+        else if(objects.size() != 0 && objects.get(0).getInt("type") == CouponType.SILVER){
+            silverKeyCount.setText(objects.size() + " " + getString(R.string.silverKey));
         }
-
+        else if(objects.size() != 0 && objects.get(0).getInt("type") == CouponType.GOLD){
+            goldKeyCount.setText(objects.size() + " " + getString(R.string.goldKey));
+        }
     }
 }

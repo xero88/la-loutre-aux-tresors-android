@@ -49,4 +49,9 @@
     <string name="bronzeKey">bronze keys</string>
     <string name="platineKey">platine keys</string>
     <string name="keysNote">Purshase some offers to get more keys !</string>
+    <string name="no_golden_keys">0 golden key</string>
+    <string name="no_silver_key">0 silver key</string>
+    <string name="no_bronze_key">0 bronze key</string>
+    <string name="silverKey">silver keys</string>
+    <string name="goldKey">gold keys</string>
 </resources>
