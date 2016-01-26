@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import java.util.List;
@@ -24,6 +26,7 @@ public class GiftFragment extends Fragment implements FindCallback<Gift> {
     public static final String SHOW_WINNING_GIFTS = "SHOW_WINNING_GIFTS";
 
     @Bind(R.id.giftListView) ListView giftListView;
+    @Bind(R.id.giftProgressBar) ProgressBar giftProgressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,6 +34,8 @@ public class GiftFragment extends Fragment implements FindCallback<Gift> {
 
         final View view = inflater.inflate(R.layout.fragment_gift_list, container, false);
         ButterKnife.bind(this, view);
+
+        giftProgressBar.setVisibility(View.VISIBLE);
 
         GiftService service = new GiftService();
 
@@ -47,6 +52,10 @@ public class GiftFragment extends Fragment implements FindCallback<Gift> {
 
     @Override
     public void done(List<Gift> gifts, ParseException e) {
+
+        giftProgressBar.setVisibility(View.GONE);
         giftListView.setAdapter(new GiftAdapter(getActivity(), gifts));
     }
+
+
 }

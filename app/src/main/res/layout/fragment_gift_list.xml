@@ -4,15 +4,33 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:background="@drawable/background3"
     tools:context="ch.geomatic.swissgeolocalmember.Fragment.GiftFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background_island"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:alpha="0.75"/>
+
+    <ProgressBar
+        android:id="@+id/giftProgressBar"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/red"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
 
     <ListView
         android:id="@+id/giftListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:paddingTop="10dp"
         android:divider="@android:color/transparent"
         android:dividerHeight="5dp"/>

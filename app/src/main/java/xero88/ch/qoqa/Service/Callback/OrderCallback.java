@@ -6,6 +6,7 @@ import android.widget.Toast;
 import com.parse.ParseException;
 import com.parse.SaveCallback;
 
+import xero88.ch.qoqa.Activity.MainActivity;
 import xero88.ch.qoqa.R;
 
 /**
@@ -24,6 +25,7 @@ public class OrderCallback implements SaveCallback{
 
         if (e == null) {
             Toast.makeText(activity, activity.getString(R.string.main_activity_order_send), Toast.LENGTH_LONG).show();
+            ((MainActivity)activity).goToCouponFragment();
         } else {
             Toast.makeText(activity, activity.getString(R.string.main_activity_error_while_sending), Toast.LENGTH_LONG).show();
         }

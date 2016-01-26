@@ -1,21 +1,32 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/background4"
     tools:ignore="MissingPrefix"
     tools:context="xero88.ch.qoqa.Activity.LoginActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background_island"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:alpha="0.75"/>
+
+    <View
+        android:id="@+id/fakeFocus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <!-- Login progress -->
     <ProgressBar
         android:id="@+id/login_progress"
         style="?android:attr/progressBarStyleLarge"
+        android:layout_gravity="center"
+        android:indeterminateTint="@color/red"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -25,7 +36,11 @@
         android:id="@+id/login_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/parchemin1">
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/background_paper">
 
         <LinearLayout
             android:id="@+id/email_login_form"
@@ -105,13 +120,13 @@
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:id="@+id/sign_in_button"
+                android:id="@+id/submitLoginOrRegisterButton"
                 style="?android:textAppearanceSmall"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/action_sign_in"
-                android:onClick="signInClickButton"
+                android:onClick="submitLoginOrRegisterRegisterClick"
                 android:background="@color/colorPrimary"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/white"
@@ -130,13 +145,13 @@
                 />
 
             <Button
-                android:id="@+id/login_button"
+                android:id="@+id/switchToLoginOrRegisterButton"
                 style="?android:textAppearanceSmall"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="@string/activity_login"
-                android:onClick="loginClickButton"
+                android:onClick="switchLoginOrRegisterClick"
                 android:background="@color/colorPrimary"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/white"
@@ -146,4 +161,5 @@
 
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+
+</FrameLayout>

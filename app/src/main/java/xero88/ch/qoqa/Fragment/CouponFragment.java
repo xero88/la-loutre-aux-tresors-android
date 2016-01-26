@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.parse.FindCallback;
@@ -29,13 +31,25 @@ public class CouponFragment extends Fragment implements FindCallback<ParseObject
     @Bind(R.id.goldKeyCount) TextView goldKeyCount;
     @Bind(R.id.silverKeysCount) TextView silverKeyCount;
     @Bind(R.id.bronzeKeysCount) TextView bronzeKeyCount;
+    @Bind(R.id.goldKeyImage) ImageView goldKeyImage;
+    @Bind(R.id.silverKeysImage) ImageView silverKeyImage;
+    @Bind(R.id.bronzeKeysImage) ImageView bronzeKeyImage;
+    @Bind(R.id.couponProgressBar) ProgressBar couponProgressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        final View view = inflater.inflate(R.layout.fragment_coupon1, container, false);
+        final View view = inflater.inflate(R.layout.fragment_coupon, container, false);
         ButterKnife.bind(this, view);
+
+        couponProgressBar.setVisibility(View.VISIBLE);
+        goldKeyCount.setVisibility(View.GONE);
+        silverKeyCount.setVisibility(View.GONE);
+        bronzeKeyCount.setVisibility(View.GONE);
+        goldKeyImage.setVisibility(View.GONE);
+        silverKeyImage.setVisibility(View.GONE);
+        bronzeKeyImage.setVisibility(View.GONE);
 
         CouponService service = new CouponService();
         service.getCoupons(ParseUser.getCurrentUser(), CouponType.BRONZE, false, this);
@@ -48,6 +62,14 @@ public class CouponFragment extends Fragment implements FindCallback<ParseObject
 
     @Override
     public void done(List<ParseObject> objects, ParseException e) {
+
+        couponProgressBar.setVisibility(View.GONE);
+        goldKeyCount.setVisibility(View.VISIBLE);
+        silverKeyCount.setVisibility(View.VISIBLE);
+        bronzeKeyCount.setVisibility(View.VISIBLE);
+        goldKeyImage.setVisibility(View.VISIBLE);
+        silverKeyImage.setVisibility(View.VISIBLE);
+        bronzeKeyImage.setVisibility(View.VISIBLE);
 
         if (e == null) {
             initMyCouponsListView(objects);

@@ -15,6 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.parse.ParseException;
+
 import java.util.Date;
 import java.util.List;
 
@@ -86,7 +88,11 @@ public class GiftAdapter extends ArrayAdapter<Gift> {
 
             // or see the winner
             TextView winnerLabel = (TextView) rowView.findViewById(R.id.countDownLabel);
-            FontUtils.setText(context.getString(R.string.earned_by) + " " + gift.getWinner().getUsername(), winnerLabel, "fonts/Primitive.ttf", context);
+            try {
+                FontUtils.setText(context.getString(R.string.earned_by) + " " + gift.getWinner().fetchIfNeeded().getUsername(), winnerLabel, "fonts/Primitive.ttf", context);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
 
         }
 

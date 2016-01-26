@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QoQa</string>
+    <string name="app_name">Pirate of otters</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -44,7 +44,7 @@
     <string name="main_activity_my_keys">My keys</string>
     <string name="main_activity_tresures">Treasures</string>
     <string name="main_activity_treasures">Treasures</string>
-    <string name="main_activity_order_send">Order sended</string>
+    <string name="main_activity_order_send">You won a key !</string>
     <string name="main_activity_error_while_sending">Error while sending order</string>
     <string name="bronzeKey">bronze keys</string>
     <string name="platineKey">platine keys</string>

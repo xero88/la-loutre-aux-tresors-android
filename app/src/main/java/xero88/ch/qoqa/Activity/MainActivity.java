@@ -231,11 +231,18 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    public void goToCouponFragment(){
+
+        Fragment selectedFragment = selectCouponFragment(getIntent());
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_container, selectedFragment).commit();
+
+    }
+
     public void iWantItClickButton(View view) {
 
         OrderService orderService = new OrderService();
         orderService.sendOrder(ParseUser.getCurrentUser(), new OrderCallback(this));
-
     }
 
     @Override
@@ -254,4 +261,14 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
+    public void buyOfferNowButtonClick(View view) {
+
+        Fragment selectedFragment = selectOfferListFragment(getIntent());
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_container, selectedFragment).commit();
+
+    }
+
+
 }
