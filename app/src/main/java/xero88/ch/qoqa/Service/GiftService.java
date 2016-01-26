@@ -12,8 +12,25 @@ import xero88.ch.qoqa.Model.Gift;
  */
 public class GiftService {
 
+    public void getWinnedGifts(FindCallback<Gift> callback) {
+        ParseQuery<Gift> query = ParseQuery.getQuery("Gift");
+        query.orderByAscending("drawDate");
+        query.whereNotEqualTo("winner", null);
+        //query.fromLocalDatastore();
+        query.findInBackground(callback);
+    }
+
+    public void getActivGifts(FindCallback<Gift> callback) {
+        ParseQuery<Gift> query = ParseQuery.getQuery("Gift");
+        query.orderByAscending("drawDate");
+        query.whereEqualTo("winner", null);
+        //query.fromLocalDatastore();
+        query.findInBackground(callback);
+    }
+
     public void getAllGifts(FindCallback<Gift> callback) {
         ParseQuery<Gift> query = ParseQuery.getQuery("Gift");
+        query.orderByAscending("drawDate");
         //query.fromLocalDatastore();
         query.findInBackground(callback);
     }

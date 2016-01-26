@@ -31,7 +31,7 @@ public class GiftFragment extends Fragment implements FindCallback<Gift> {
         ButterKnife.bind(this, view);
 
         GiftService service = new GiftService();
-        service.getAllGifts(this);
+        service.getActivGifts(this);
 
         // Inflate the layout for this fragment
         return view;
