@@ -1,7 +1,7 @@
 package xero88.ch.qoqa.Service;
 
 import com.parse.FindCallback;
-import com.parse.ParseObject;
+import com.parse.GetCallback;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
@@ -16,6 +16,14 @@ public class GiftService {
         ParseQuery<Gift> query = ParseQuery.getQuery("Gift");
         //query.fromLocalDatastore();
         query.findInBackground(callback);
+    }
+
+
+    public void getGift(String giftId, GetCallback<Gift> callback) {
+
+        ParseQuery<Gift> query = ParseQuery.getQuery("Gift");
+        query.whereEqualTo("objectId", giftId);
+        query.getFirstInBackground(callback);
     }
 
     public void getAllGifts(int byType, FindCallback<Gift> callback) {

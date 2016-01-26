@@ -3,15 +3,14 @@ package xero88.ch.qoqa.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -25,11 +24,11 @@ import com.parse.ParseUser;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 import xero88.ch.qoqa.Fragment.CouponFragment;
 import xero88.ch.qoqa.Fragment.GiftFragment;
 import xero88.ch.qoqa.Fragment.OfferListFragment;
+import xero88.ch.qoqa.Fragment.WinnerFragment;
 import xero88.ch.qoqa.Model.User;
 import xero88.ch.qoqa.R;
 import xero88.ch.qoqa.Service.Callback.OrderCallback;
@@ -92,12 +91,29 @@ public class MainActivity extends AppCompatActivity
 
     private void selectFragment(Intent intent) {
 
-        // Selected Fragment
-        Fragment selectedFragment = selectOfferListFragment(intent);
+        Fragment selectedFragment = null;
+
+        Bundle extras = intent.getExtras();
+        if(extras != null && intent.hasExtra("giftId")) {
+            selectedFragment = selectWinnerFragment(intent);
+        }
+        else {
+            selectedFragment = selectOfferListFragment(intent);
+        }
+
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.main_container, selectedFragment).commit();
 
+    }
+
+    private Fragment selectWinnerFragment(Intent intent) {
+        Fragment selectedFragment;
+        selectedFragment = new WinnerFragment();
+        selectedFragment.setArguments(intent.getExtras());
+        //navigationView.getMenu().getItem(0).setChecked(true);
+
+        return selectedFragment;
     }
 
     private Fragment selectOfferListFragment(Intent intent) {
