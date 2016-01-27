@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -18,6 +17,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -27,7 +27,6 @@ import com.parse.SignUpCallback;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-import ch.xero88.qoqa.Fragment.ErrorFragment;
 import ch.xero88.qoqa.Model.User;
 import ch.xero88.qoqa.R;
 import ch.xero88.qoqa.Service.UserService;
@@ -268,21 +267,6 @@ public class LoginActivity extends AppCompatActivity implements SignUpCallback, 
 
 
 
-    @Override
-    public void done(ParseException e) {
-
-        if (e == null) {
-            // Go to home if logged
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            finish();
-
-        } else {
-            Log.e("Error", e.getMessage());
-            this.openErrorFragment("");
-        }
-    }
-
 
     public void switchLoginOrRegisterClick(View view) {
 
@@ -318,6 +302,23 @@ public class LoginActivity extends AppCompatActivity implements SignUpCallback, 
             attemptLogin();
     }
 
+    @Override
+    public void done(ParseException e) {
+
+        if (e == null) {
+            // Go to home if logged
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
+
+        } else {
+            Log.e("Error", e.getMessage());
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+            showProgress(false);
+        }
+    }
+
 
     @Override
     public void done(ParseUser user, ParseException e) {
@@ -330,31 +331,9 @@ public class LoginActivity extends AppCompatActivity implements SignUpCallback, 
 
         } else {
             Log.e("Error", e.getMessage());
-            this.openErrorFragment("");
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+            showProgress(false);
         }
     }
-
-
-    public void openErrorFragment(String errorMessage) {
-
-        Fragment selectedFragment = selectErrorFragment(getIntent(), errorMessage);
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.main_container, selectedFragment).commit();
-
-    }
-
-    private Fragment selectErrorFragment(Intent intent, String errorMessage) {
-
-        Fragment selectedFragment = new ErrorFragment();
-        if(errorMessage != null && errorMessage != "") {
-            intent.putExtra(ErrorFragment.ERROR_MESSAGE, errorMessage);
-            selectedFragment.setArguments(intent.getExtras());
-        }
-        return selectedFragment;
-
-    }
-
-
-
 }
 

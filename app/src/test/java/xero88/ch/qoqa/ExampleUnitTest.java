@@ -1,4 +1,4 @@
-package xero88.ch.qoqa;
+package ch.xero88.qoqa;
 
 import org.junit.Test;
 

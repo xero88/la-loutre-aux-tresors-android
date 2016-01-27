@@ -48,7 +48,7 @@ public class WinnerFragment extends Fragment implements GetCallback<Gift> {
             initGift(gift);
             Log.d("Coupons", "Retrieved gift");
         } else {
-            Log.d("Coupons", "Error: " + e.getMessage());
+            Log.e("Coupons", "Error: " + e.getMessage());
             MainActivity activity = ((MainActivity) getActivity());
             if(activity != null)
                 activity.openErrorFragment("");

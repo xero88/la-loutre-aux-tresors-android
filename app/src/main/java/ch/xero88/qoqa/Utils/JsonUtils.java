@@ -4,7 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Created by macminigeomatic on 26.01.16.
+ * Created by abernardo on 26.01.16.
  */
 public class JsonUtils {
 
