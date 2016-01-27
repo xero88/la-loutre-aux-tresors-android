@@ -54,7 +54,7 @@
     <string name="silverKey">clés d\'argent</string>
     <string name="title_activity_login">S\'enregistrer</string>
     <string name="welcomeMessage">Lorsque vous achetez une offres, vous avez une chance de gagner une clé en bronze, en argent ou en or. Avec ces clés, vous pourrez ouvrir des coffres et gagner d\'incroyables cadeaux !</string>
-    <string name="welcomeTitle">Bienvenue moussaillon !</string>
+    <string name="welcomeTitle">Bienvenue moussaillon</string>
     <string name="you_opened_a_chest">Vous avez ouvert un coffre !</string>
     <string name="you_won">Vous avez gagné :</string>
 </resources>
