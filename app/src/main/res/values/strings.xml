@@ -64,4 +64,6 @@
     <string name="welcomeTitle">Welcome pirate !</string>
     <string name="welcomeMessage">You can won incredible tresure ! When you buy offers, you earn bronze, silver, or gold keys. With this keys you can open chests and win all kind of crazy treasure !</string>
     <string name="buy_offer">buy offer now</string>
+    <string name="error_title">Oups...</string>
+    <string name="error_message">Something get wrong...</string>
 </resources>

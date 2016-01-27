@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -17,7 +18,6 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -27,6 +27,7 @@ import com.parse.SignUpCallback;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import xero88.ch.qoqa.Fragment.ErrorFragment;
 import xero88.ch.qoqa.Model.User;
 import xero88.ch.qoqa.R;
 import xero88.ch.qoqa.Service.UserService;
@@ -278,7 +279,7 @@ public class LoginActivity extends AppCompatActivity implements SignUpCallback, 
 
         } else {
             Log.e("Error", e.getMessage());
-            Toast.makeText(this, getString(R.string.login_activity_error_when_signin), Toast.LENGTH_LONG).show();
+            this.openErrorFragment("");
         }
     }
 
@@ -329,10 +330,29 @@ public class LoginActivity extends AppCompatActivity implements SignUpCallback, 
 
         } else {
             Log.e("Error", e.getMessage());
-            Toast.makeText(this, getString(R.string.login_activity_error_when_login), Toast.LENGTH_LONG).show();
+            this.openErrorFragment("");
         }
     }
 
+
+    public void openErrorFragment(String errorMessage) {
+
+        Fragment selectedFragment = selectErrorFragment(getIntent(), errorMessage);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_container, selectedFragment).commit();
+
+    }
+
+    private Fragment selectErrorFragment(Intent intent, String errorMessage) {
+
+        Fragment selectedFragment = new ErrorFragment();
+        if(errorMessage != null && errorMessage != "") {
+            intent.putExtra(ErrorFragment.ERROR_MESSAGE, errorMessage);
+            selectedFragment.setArguments(intent.getExtras());
+        }
+        return selectedFragment;
+
+    }
 
 
 

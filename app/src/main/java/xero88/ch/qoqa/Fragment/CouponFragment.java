@@ -19,6 +19,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import xero88.ch.qoqa.Activity.MainActivity;
 import xero88.ch.qoqa.Model.CouponType;
 import xero88.ch.qoqa.R;
 import xero88.ch.qoqa.Service.CouponService;
@@ -76,6 +77,9 @@ public class CouponFragment extends Fragment implements FindCallback<ParseObject
             Log.d("Coupons", "Retrieved " + objects.size() + " coupons");
         } else {
             Log.d("Coupons", "Error: " + e.getMessage());
+            MainActivity activity = ((MainActivity) getActivity());
+            if(activity != null)
+                activity.openErrorFragment("");
         }
     }
 

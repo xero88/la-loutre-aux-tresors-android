@@ -14,6 +14,7 @@ import com.parse.ParseException;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import xero88.ch.qoqa.Activity.MainActivity;
 import xero88.ch.qoqa.Model.Gift;
 import xero88.ch.qoqa.R;
 import xero88.ch.qoqa.Service.GiftService;
@@ -48,6 +49,9 @@ public class WinnerFragment extends Fragment implements GetCallback<Gift> {
             Log.d("Coupons", "Retrieved gift");
         } else {
             Log.d("Coupons", "Error: " + e.getMessage());
+            MainActivity activity = ((MainActivity) getActivity());
+            if(activity != null)
+                activity.openErrorFragment("");
         }
     }
 

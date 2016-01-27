@@ -23,7 +23,7 @@
             <menu>
                 <item android:checkable="true"
                     android:id="@+id/nav_my_coupons"
-                    android:icon="@drawable/key"
+                    android:icon="@drawable/ic_key"
                     android:title="@string/main_activity_my_keys" />
                 <item
                     android:id="@+id/nav_logout"

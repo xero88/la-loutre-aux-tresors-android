@@ -2,6 +2,7 @@ package xero88.ch.qoqa.Fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +11,12 @@ import android.widget.ProgressBar;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
+
 import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import xero88.ch.qoqa.Activity.MainActivity;
 import xero88.ch.qoqa.Adapter.GiftAdapter;
 import xero88.ch.qoqa.Model.Gift;
 import xero88.ch.qoqa.R;
@@ -53,8 +57,16 @@ public class GiftFragment extends Fragment implements FindCallback<Gift> {
     @Override
     public void done(List<Gift> gifts, ParseException e) {
 
-        giftProgressBar.setVisibility(View.GONE);
-        giftListView.setAdapter(new GiftAdapter(getActivity(), gifts));
+        if (e == null) {
+            giftProgressBar.setVisibility(View.GONE);
+            giftListView.setAdapter(new GiftAdapter(getActivity(), gifts));
+        } else {
+            Log.e("Gift", "Error: " + e.getMessage());
+
+            MainActivity activity = ((MainActivity) getActivity());
+            if(activity != null)
+                activity.openErrorFragment("");
+        }
     }
 
 

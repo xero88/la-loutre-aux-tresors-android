@@ -15,7 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
@@ -25,6 +24,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 import xero88.ch.qoqa.Fragment.CouponFragment;
+import xero88.ch.qoqa.Fragment.ErrorFragment;
 import xero88.ch.qoqa.Fragment.GiftFragment;
 import xero88.ch.qoqa.Fragment.HomeFragment;
 import xero88.ch.qoqa.Fragment.OfferListFragment;
@@ -176,6 +176,17 @@ public class MainActivity extends AppCompatActivity
         return selectedFragment;
     }
 
+    private Fragment selectErrorFragment(Intent intent, String errorMessage) {
+
+        Fragment selectedFragment = new ErrorFragment();
+        if(errorMessage != null && errorMessage != "") {
+            intent.putExtra(ErrorFragment.ERROR_MESSAGE, errorMessage);
+            selectedFragment.setArguments(intent.getExtras());
+        }
+        return selectedFragment;
+
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -240,6 +251,8 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    /* External navigation */
+
     public void goToCouponFragment(){
 
         Fragment selectedFragment = selectCouponFragment(getIntent());
@@ -248,11 +261,15 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void iWantItClickButton(View view) {
+    public void openErrorFragment(String errorMessage) {
 
-        OrderService orderService = new OrderService();
-        orderService.sendOrder(ParseUser.getCurrentUser(), new OrderCallback(this));
+        Fragment selectedFragment = selectErrorFragment(getIntent(), errorMessage);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_container, selectedFragment).commit();
+
     }
+
+    /* Callbacks */
 
     @Override
     public void done(ParseException e) {
@@ -266,9 +283,17 @@ public class MainActivity extends AppCompatActivity
 
         } else {
             Log.e("Error", e.getMessage());
-            Toast.makeText(this, getString(R.string.main_activity_error_while_loggout), Toast.LENGTH_LONG).show();
+            this.openErrorFragment("");
         }
 
+    }
+
+    /* Click handlers */
+
+    public void iWantItClickButton(View view) {
+
+        OrderService orderService = new OrderService();
+        orderService.sendOrder(ParseUser.getCurrentUser(), new OrderCallback(this));
 
     }
 
@@ -279,6 +304,5 @@ public class MainActivity extends AppCompatActivity
                 .replace(R.id.main_container, selectedFragment).commit();
 
     }
-
 
 }

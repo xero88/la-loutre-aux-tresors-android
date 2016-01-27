@@ -27,7 +27,8 @@ public class OrderCallback implements SaveCallback{
             Toast.makeText(activity, activity.getString(R.string.main_activity_order_send), Toast.LENGTH_LONG).show();
             ((MainActivity)activity).goToCouponFragment();
         } else {
-            Toast.makeText(activity, activity.getString(R.string.main_activity_error_while_sending), Toast.LENGTH_LONG).show();
+            if(activity != null)
+                ((MainActivity)activity).openErrorFragment("");
         }
     }
 }
