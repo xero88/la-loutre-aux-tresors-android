@@ -57,11 +57,11 @@ public class GiftAdapter extends ArrayAdapter<Gift> {
         // chest
         ImageView chestImageView = (ImageView) rowView.findViewById(R.id.chestImage);
         if(gift.getType() == CouponType.BRONZE)
-            chestImageView.setImageResource(R.drawable.chest_bronze);
+            chestImageView.setImageResource(R.drawable.bronze_chest);
         if(gift.getType() == CouponType.SILVER)
-            chestImageView.setImageResource(R.drawable.chest_silver);
+            chestImageView.setImageResource(R.drawable.silver_chest);
         if(gift.getType() == CouponType.GOLD)
-            chestImageView.setImageResource(R.drawable.chest_gold);
+            chestImageView.setImageResource(R.drawable.gold_chest);
 
         if(gift.getWinner() == null){
 

@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
-import com.parse.ParsePush;
 import com.parse.ParseUser;
 
 import butterknife.Bind;
@@ -48,10 +47,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        // Parse : subscribe in channel by the name of user
-        ParseUser user = ParseUser.getCurrentUser();
-        ParsePush.subscribeInBackground("QoQa_" + user.getObjectId());
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -64,6 +59,16 @@ public class MainActivity extends AppCompatActivity
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View headView = navigationView.getHeaderView(0);
+
+        ParseUser user = ParseUser.getCurrentUser();
+        if(user == null){
+            // login / signUp
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            return;
+        }
 
         // set current user email and name on drawer
         ((TextView) headView.findViewById(R.id.emailUser)).setText(user.getUsername());
@@ -114,7 +119,7 @@ public class MainActivity extends AppCompatActivity
         selectedFragment = new HomeFragment();
         selectedFragment.setArguments(intent.getExtras());
         navigationView.getMenu().getItem(0).setChecked(true);
-
+        navigationView.getMenu().getItem(4).getSubMenu().getItem(0).setChecked(false);
         return selectedFragment;
     }
 
@@ -122,8 +127,7 @@ public class MainActivity extends AppCompatActivity
         Fragment selectedFragment;
         selectedFragment = new WinnerFragment();
         selectedFragment.setArguments(intent.getExtras());
-        //navigationView.getMenu().getItem(0).setChecked(true);
-
+        navigationView.getMenu().getItem(4).getSubMenu().getItem(0).setChecked(false);
         return selectedFragment;
     }
 
@@ -133,6 +137,7 @@ public class MainActivity extends AppCompatActivity
         selectedFragment = new OfferListFragment();
         selectedFragment.setArguments(intent.getExtras());
         navigationView.getMenu().getItem(1).setChecked(true);
+        navigationView.getMenu().getItem(4).getSubMenu().getItem(0).setChecked(false);
 
         return selectedFragment;
     }
@@ -142,7 +147,11 @@ public class MainActivity extends AppCompatActivity
         Fragment selectedFragment;
         selectedFragment = new CouponFragment();
         selectedFragment.setArguments(intent.getExtras());
-        //navigationView.getMenu().getItem(1).setChecked(true);
+        navigationView.getMenu().getItem(0).setChecked(false);
+        navigationView.getMenu().getItem(1).setChecked(false);
+        navigationView.getMenu().getItem(2).setChecked(false);
+        navigationView.getMenu().getItem(3).setChecked(false);
+        navigationView.getMenu().getItem(4).getSubMenu().getItem(0).setChecked(true);
 
         return selectedFragment;
     }
@@ -153,7 +162,7 @@ public class MainActivity extends AppCompatActivity
         intent.putExtra(GiftFragment.SHOW_WINNING_GIFTS, false);
         selectedFragment.setArguments(intent.getExtras());
         navigationView.getMenu().getItem(2).setChecked(true);
-
+        navigationView.getMenu().getItem(4).getSubMenu().getItem(0).setChecked(false);
         return selectedFragment;
     }
 
@@ -163,7 +172,7 @@ public class MainActivity extends AppCompatActivity
         intent.putExtra(GiftFragment.SHOW_WINNING_GIFTS, true);
         selectedFragment.setArguments(intent.getExtras());
         navigationView.getMenu().getItem(3).setChecked(true);
-
+        navigationView.getMenu().getItem(4).getSubMenu().getItem(0).setChecked(false);
         return selectedFragment;
     }
 
@@ -251,6 +260,7 @@ public class MainActivity extends AppCompatActivity
         // after logout
         if (e == null) {
             Intent intent = new Intent(this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             finish();
 

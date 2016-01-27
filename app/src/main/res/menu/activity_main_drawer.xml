@@ -4,7 +4,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_cake_black_24dp"
+            android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/main_activity_home" />
         <item
             android:id="@+id/nav_offers"
@@ -12,27 +12,26 @@
             android:title="@string/main_activity_offers" />
         <item
             android:id="@+id/nav_gift_of_month"
-            android:icon="@drawable/ic_cake_black_24dp"
+            android:icon="@drawable/ic_chest"
             android:title="@string/main_activity_treasures" />
         <item
             android:id="@+id/nav_gift_winning"
-            android:icon="@drawable/ic_cake_black_24dp"
+            android:icon="@drawable/ic_chest"
             android:title="@string/main_activity_winning_treasures" />
 
+        <item android:title="@string/main_activity_my_account">
+            <menu>
+                <item android:checkable="true"
+                    android:id="@+id/nav_my_coupons"
+                    android:icon="@drawable/key"
+                    android:title="@string/main_activity_my_keys" />
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_exit_to_app_black_24dp"
+                    android:title="@string/main_activity_logout" />
+            </menu>
+
+        </item>
     </group>
-
-    <item android:title="@string/main_activity_my_account">
-        <menu>
-            <item
-                android:id="@+id/nav_my_coupons"
-                android:icon="@drawable/key"
-                android:title="@string/main_activity_my_keys" />
-            <item
-                android:id="@+id/nav_logout"
-                android:icon="@drawable/ic_exit_to_app_black_24dp"
-                android:title="@string/main_activity_logout" />
-        </menu>
-
-    </item>
 
 </menu>

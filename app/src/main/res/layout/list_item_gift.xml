@@ -21,7 +21,8 @@
          android:layout_height="55dp"
          android:layout_marginTop="15dp"
          android:layout_marginLeft="30dp"
-         android:src="@drawable/chest2"/>
+         android:src="@drawable/chest"
+         android:layout_centerVertical="true"/>
 
     <TextView
         android:id="@+id/titleLabel"

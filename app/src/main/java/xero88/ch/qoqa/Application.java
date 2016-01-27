@@ -5,6 +5,7 @@ import android.content.Intent;
 import com.parse.Parse;
 import com.parse.ParseInstallation;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
 import com.parse.ParseUser;
 
 import xero88.ch.qoqa.Activity.LoginActivity;
@@ -29,14 +30,20 @@ public class Application extends android.app.Application  {
 
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {
+
+            // Parse : subscribe in channel by the name of user
+            ParsePush.subscribeInBackground("QoQa_" + currentUser.getObjectId());
+
             // Get on main if logged
             Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         } else {
             // ... Or login / signUp
             Intent intent = new Intent(this, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }
 
