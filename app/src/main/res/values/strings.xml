@@ -1,18 +1,12 @@
 <resources>
-    <string name="app_name">Pirate of otters</string>
-
+    <string name="app_name">The otter\'s treasures</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
-
-    <!-- Activity -->
     <string name="main_activity_offers">Offers</string>
     <string name="main_activity_gift_of_month">Month\'s gift</string>
     <string name="main_activity_my_coupons">My coupons</string>
     <string name="main_activity_my_account">My account</string>
-
-    <!-- Fragments -->
     <string name="home_fragment_title">Geneva</string>
     <string name="home_fragment_description">Système HiFi / meuble TV XXL</string>
     <string name="offer_fragment_i_want_it">I want it</string>
@@ -20,8 +14,6 @@
     <string name="sign_up_fragment_email">Email</string>
     <string name="sign_up_fragment_password">Password</string>
     <string name="title_activity_login">Sign in</string>
-
-    <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Register</string>
@@ -48,7 +40,7 @@
     <string name="main_activity_error_while_sending">Error while sending order</string>
     <string name="bronzeKey">bronze keys</string>
     <string name="platineKey">platine keys</string>
-    <string name="keysNote">Purshase some offers to get more keys !</string>
+    <string name="keysNote">Purchase some offers to get more keys !</string>
     <string name="no_golden_keys">0 golden key</string>
     <string name="no_silver_key">0 silver key</string>
     <string name="no_bronze_key">0 bronze key</string>
@@ -59,11 +51,11 @@
     <string name="you_won">You won :</string>
     <string name="main_activity_winning_treasures">Winning treasures</string>
     <string name="main_activity_home">Home</string>
-§    <string name="earned_by">earned by</string>
+    <string name="earned_by">earned by</string>
     <string name="draw_in_any_sec">draw in any sec !</string>
     <string name="welcomeTitle">Welcome pirate !</string>
     <string name="welcomeMessage">You can won incredible tresure ! When you buy offers, you earn bronze, silver, or gold keys. With this keys you can open chests and win all kind of crazy treasure !</string>
     <string name="buy_offer">buy offer now</string>
-    <string name="error_title">Oups...</string>
+    <string name="error_title">Oops...</string>
     <string name="error_message">Something get wrong...</string>
 </resources>
