@@ -35,6 +35,7 @@ public class CouponFragment extends Fragment implements FindCallback<ParseObject
     @Bind(R.id.goldKeyImage) ImageView goldKeyImage;
     @Bind(R.id.silverKeysImage) ImageView silverKeyImage;
     @Bind(R.id.bronzeKeysImage) ImageView bronzeKeyImage;
+    @Bind(R.id.noteKeys) TextView noteKeyTextView;
     @Bind(R.id.couponProgressBar) ProgressBar couponProgressBar;
 
     @Override
@@ -45,6 +46,7 @@ public class CouponFragment extends Fragment implements FindCallback<ParseObject
         ButterKnife.bind(this, view);
 
         couponProgressBar.setVisibility(View.VISIBLE);
+        noteKeyTextView.setVisibility(View.GONE);
         goldKeyCount.setVisibility(View.GONE);
         silverKeyCount.setVisibility(View.GONE);
         bronzeKeyCount.setVisibility(View.GONE);
@@ -65,6 +67,7 @@ public class CouponFragment extends Fragment implements FindCallback<ParseObject
     public void done(List<ParseObject> objects, ParseException e) {
 
         couponProgressBar.setVisibility(View.GONE);
+        noteKeyTextView.setVisibility(View.VISIBLE);
         goldKeyCount.setVisibility(View.VISIBLE);
         silverKeyCount.setVisibility(View.VISIBLE);
         bronzeKeyCount.setVisibility(View.VISIBLE);

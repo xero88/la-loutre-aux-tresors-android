@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -23,7 +24,6 @@ import com.parse.ParseUser;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 import ch.xero88.qoqa.Fragment.CouponFragment;
 import ch.xero88.qoqa.Fragment.ErrorFragment;
 import ch.xero88.qoqa.Fragment.GiftFragment;
@@ -34,6 +34,7 @@ import ch.xero88.qoqa.Model.User;
 import ch.xero88.qoqa.R;
 import ch.xero88.qoqa.Service.Callback.OrderCallback;
 import ch.xero88.qoqa.Service.OrderService;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, LogOutCallback {
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity
     @Bind(R.id.main_container) FrameLayout mainContainer;
 
     private NavigationView navigationView;
+    private DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -302,11 +304,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void buyOfferNowButtonClick(View view) {
-
-        Fragment selectedFragment = selectOfferListFragment(getIntent());
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.main_container, selectedFragment).commit();
-
+        drawer.openDrawer(Gravity.LEFT);
     }
 
 }

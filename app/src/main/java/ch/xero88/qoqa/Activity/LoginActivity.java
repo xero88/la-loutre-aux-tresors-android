@@ -96,6 +96,7 @@ public class LoginActivity extends AppCompatActivity implements SignUpCallback, 
 
         boolean cancel = false;
         View focusView = fakeFocus;
+        fakeFocus.requestFocus();
 
         if (TextUtils.isEmpty(email)) {
             mUsernameView.setError(getString(R.string.error_field_required));
@@ -151,19 +152,22 @@ public class LoginActivity extends AppCompatActivity implements SignUpCallback, 
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
+        String firstname = mFirstnameView.getText().toString();
+        String lastname = mLastnameView.getText().toString();
         String email = mUsernameView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
         View focusView = fakeFocus;
+        fakeFocus.requestFocus();
 
-        if (TextUtils.isEmpty(email)) {
+        if (TextUtils.isEmpty(firstname)) {
             mFirstnameView.setError(getString(R.string.error_field_required));
             focusView = mFirstnameView;
             cancel = true;
         }
 
-        if (TextUtils.isEmpty(email)) {
+        if (TextUtils.isEmpty(lastname)) {
             mLastnameView.setError(getString(R.string.error_field_required));
             focusView = mLastnameView;
             cancel = true;
@@ -281,6 +285,7 @@ public class LoginActivity extends AppCompatActivity implements SignUpCallback, 
             mLastnameView.setError(null);
             mUsernameView.setError(null);
             mPasswordView.setError(null);
+            mFirstnameView.requestFocus();
         }
         else{
             mFirstnameView.setVisibility(View.GONE);
@@ -291,6 +296,7 @@ public class LoginActivity extends AppCompatActivity implements SignUpCallback, 
             mLastnameView.setError(null);
             mUsernameView.setError(null);
             mPasswordView.setError(null);
+            mUsernameView.requestFocus();
         }
     }
 
