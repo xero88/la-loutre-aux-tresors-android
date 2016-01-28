@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
+import com.parse.ParsePush;
 import com.parse.ParseUser;
 
 import butterknife.Bind;
@@ -69,6 +70,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
             return;
         }
+
+        // Parse : subscribe in channel by the name of user
+        ParsePush.subscribeInBackground("QoQa_" + user.getObjectId());
 
         // set current user email and name on drawer
         ((TextView) headView.findViewById(R.id.emailUser)).setText(user.getUsername());

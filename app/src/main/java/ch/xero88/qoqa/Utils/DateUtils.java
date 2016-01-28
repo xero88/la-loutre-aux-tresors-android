@@ -1,5 +1,7 @@
 package ch.xero88.qoqa.Utils;
 
+import android.content.Context;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -10,7 +12,7 @@ public class DateUtils {
 
     public static int SECONDS_IN_A_DAY = 24 * 60 * 60;
 
-    public static String getCountdown(Date date) {
+    public static String getCountdown(Date date, String yearString ,String dayString, String hoursString, String minuteString, String secondString) {
 
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -26,13 +28,13 @@ public class DateUtils {
         long hours = (secondsDay / 3600); // % 24 not needed
 
         if(days == 0)
-            return hours + " hours, " + minutes + " minutes, " + seconds + " seconds"; // TODO Locale
+            return hours + " "+ hoursString +", " + minutes + " "+ minuteString +", " + seconds + " " + secondString + "";
         else if(days == 0 && hours == 0)
-            return minutes + " minutes, " + seconds + " seconds"; // TODO Locale
+            return minutes + " " + minuteString + ", " + seconds + " " + secondString;
         else if(days == 0 && hours == 0 && minutes == 0)
-            return seconds + " seconds"; // TODO Locale
+            return seconds + " " + secondString + "";
         else
-            return days + " days, " + hours + " hours, " + minutes + " minutes"; // TODO Locale
+            return days + " " + dayString + ", " + hours + " " + hoursString + ", " + minutes + " " + minuteString + "";
 
 
     }

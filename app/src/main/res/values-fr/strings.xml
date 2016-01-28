@@ -57,4 +57,9 @@
     <string name="welcomeTitle">Bienvenue moussaillon</string>
     <string name="you_opened_a_chest">Vous avez ouvert un coffre !</string>
     <string name="you_won">Vous avez gagné :</string>
+    <string name="years">ans</string>
+    <string name="days">jours</string>
+    <string name="hours">heures</string>
+    <string name="minutes">minutes</string>
+    <string name="seconds">secondes</string>
 </resources>

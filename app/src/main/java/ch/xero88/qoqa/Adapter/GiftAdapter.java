@@ -73,7 +73,13 @@ public class GiftAdapter extends ArrayAdapter<Gift> {
 
                 @Override
                 public void onTick(long millisUntilFinished) {
-                    FontUtils.setText(DateUtils.getCountdown(giftDrawDate), countdownLabel, "fonts/Primitive.ttf", context);
+                    FontUtils.setText(DateUtils.getCountdown(
+                            giftDrawDate,
+                            context.getString(R.string.years),
+                            context.getString(R.string.days),
+                            context.getString(R.string.hours),
+                            context.getString(R.string.minutes),
+                            context.getString(R.string.seconds)), countdownLabel, "fonts/Primitive.ttf", context);
                 }
 
                 @Override

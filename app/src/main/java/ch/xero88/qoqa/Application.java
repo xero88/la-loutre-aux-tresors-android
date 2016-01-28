@@ -24,15 +24,13 @@ public class Application extends android.app.Application  {
 
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, "Csu3X9Ra2stVGcmhPw2qMYKXAMuIdcIVcs8DUOcJ", "VVE0tcsrIGTYFi1SlH8lDJXxRJG7rDtvbULLRrxx");
+        Parse.setLogLevel(Parse.LOG_LEVEL_VERBOSE); // TODO
         ParseObject.registerSubclass(Gift.class);
         // TODO les autres
         ParseInstallation.getCurrentInstallation().saveInBackground();
 
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {
-
-            // Parse : subscribe in channel by the name of user
-            ParsePush.subscribeInBackground("QoQa_" + currentUser.getObjectId());
 
             // Get on main if logged
             Intent intent = new Intent(this, MainActivity.class);

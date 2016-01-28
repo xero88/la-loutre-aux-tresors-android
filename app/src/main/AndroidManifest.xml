@@ -48,6 +48,8 @@
 
         <!-- For parse -->
         <service android:name="com.parse.PushService" />
+        <meta-data android:name="com.parse.push.gcm_sender_id"
+            android:value="id:YOUR_SENDER_ID" />
 
         <receiver
             android:name="com.parse.GcmBroadcastReceiver"
