@@ -8,8 +8,8 @@ import com.parse.ParseObject;
 import com.parse.ParsePush;
 import com.parse.ParseUser;
 
-import ch.xero88.qoqa.Activity.LoginActivity;
 import ch.xero88.qoqa.Activity.MainActivity;
+import ch.xero88.qoqa.Login.LoginActivity;
 import ch.xero88.qoqa.Model.Gift;
 
 /**

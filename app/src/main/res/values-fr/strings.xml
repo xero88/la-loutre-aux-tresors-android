@@ -5,7 +5,7 @@
     <string name="action_sign_in">S\'enregister</string>
     <string name="action_sign_in_short">S\'enregister</string>
     <string name="activity_login">Se connecter</string>
-    <string name="bronzeKey">clés en bronze</string>
+    <string name="bronzeKey">clé(s) de bronze</string>
     <string name="buy_offer">acheter une offre</string>
     <string name="congratulations">Félicitations !</string>
     <string name="draw_in_any_sec">Tirage en cours !</string>
@@ -16,7 +16,7 @@
     <string name="error_invalid_password">Mot de passe trop court</string>
     <string name="error_message">Une erreur s\'est produite...</string>
     <string name="error_title">Oups...</string>
-    <string name="goldKey">clés en or</string>
+    <string name="goldKey">clé(s) en or</string>
     <string name="home_fragment_description">Système HiFi / meuble TV XXL</string>
     <string name="home_fragment_title">Geneva</string>
     <string name="keysNote">Achetez des offres pour recevoir plus de clés !</string>
@@ -35,7 +35,7 @@
     <string name="main_activity_order_send">Vous avez gagné une clé !</string>
     <string name="main_activity_treasures">Trésors</string>
     <string name="main_activity_tresures">Trésors</string>
-    <string name="main_activity_winning_treasures">Trésors gagnés</string>
+    <string name="main_activity_winning_treasures">Gagnants</string>
     <string name="navigation_drawer_close">Fermer le menu</string>
     <string name="navigation_drawer_open">Ouvrir le menu</string>
     <string name="no_bronze_key">0 clé de bronze</string>
@@ -51,7 +51,7 @@
     <string name="sign_up_fragment_email">Email</string>
     <string name="sign_up_fragment_password">Mot de passe</string>
     <string name="sign_up_fragment_username">Utilisateur</string>
-    <string name="silverKey">clés d\'argent</string>
+    <string name="silverKey">clé(s) d\'argent</string>
     <string name="title_activity_login">S\'enregistrer</string>
     <string name="welcomeMessage">Lorsque vous achetez une offre, vous avez une chance de gagner une clé en bronze, en argent ou en or. Avec ces clés, vous pourrez ouvrir des coffres et gagner d\'incroyables cadeaux !</string>
     <string name="welcomeTitle">Bienvenue moussaillon</string>
@@ -62,4 +62,5 @@
     <string name="hours">heures</string>
     <string name="minutes">minutes</string>
     <string name="seconds">secondes</string>
+    <string name="error_invalid_password_2">Mot de passe incorrect</string>
 </resources>

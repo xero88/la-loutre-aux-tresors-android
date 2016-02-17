@@ -30,6 +30,7 @@ import ch.xero88.qoqa.Fragment.GiftFragment;
 import ch.xero88.qoqa.Fragment.HomeFragment;
 import ch.xero88.qoqa.Fragment.OfferListFragment;
 import ch.xero88.qoqa.Fragment.WinnerFragment;
+import ch.xero88.qoqa.Login.LoginActivity;
 import ch.xero88.qoqa.Model.User;
 import ch.xero88.qoqa.R;
 import ch.xero88.qoqa.Service.Callback.OrderCallback;
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        View headView = navigationView.getHeaderView(0);
+        //View headView = navigationView.getHeaderView(0); // TODO !!! ca marchait avant. (voir version a changé)
 
         ParseUser user = ParseUser.getCurrentUser();
         if(user == null){
@@ -77,8 +78,8 @@ public class MainActivity extends AppCompatActivity
         ParsePush.subscribeInBackground("QoQa_" + user.getObjectId());
 
         // set current user email and name on drawer
-        ((TextView) headView.findViewById(R.id.emailUser)).setText(user.getUsername());
-        ((TextView) headView.findViewById(R.id.firstNameAndLastName)).setText((String)user.get(User.FIRSTNAME) + " " + (String)user.get(User.LASTNAME));
+        //((TextView) headView.findViewById(R.id.emailUser)).setText(user.getUsername());// TODO !!! ca marchait avant. (voir version a changé)
+        //((TextView) headView.findViewById(R.id.firstNameAndLastName)).setText((String)user.get(User.FIRSTNAME) + " " + (String)user.get(User.LASTNAME));// TODO !!! ca marchait avant. (voir version a changé)
 
         // Check that the activity is using the layout version with
         // the fragment_container FrameLayout

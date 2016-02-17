@@ -12,7 +12,11 @@ import ch.xero88.qoqa.Model.User;
  */
 public class UserService {
 
-    public void register(User user, SignUpCallback callback){
+    /*
+     * Register a new parse User (with username / password / firstname / lastname)
+     *
+     */
+    public void register(User user, SignUpCallback parseSignUpCallaback){
 
         ParseUser pUser = new ParseUser();
         pUser.setUsername(user.getUsername());
@@ -20,11 +24,15 @@ public class UserService {
         pUser.put(User.FIRSTNAME, user.getFirstName());
         pUser.put(User.LASTNAME, user.getLastName());
 
-        pUser.signUpInBackground(callback);
+        pUser.signUpInBackground(parseSignUpCallaback);
     }
 
-    public void login(String username, String password, LogInCallback callback){
+    /*
+     * Login a parse User
+     *
+     */
+    public void login(String username, String password, LogInCallback parseLogInCallback){
 
-        ParseUser.logInInBackground(username, password, callback);
+        ParseUser.logInInBackground(username, password, parseLogInCallback);
     }
 }
