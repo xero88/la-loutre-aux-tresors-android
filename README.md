@@ -4,5 +4,8 @@ Projet dans le cadre d'un concours de développement pour QoQa Suisse. Backend r
 
 # Challenge
 
-réaliser une app innovante en 1 semaine
+Réaliser une app innovante dans le cadre des produits QoQa en 1 semaine
 
+# Résultat
+
+Entretien décroché chez QoQa
